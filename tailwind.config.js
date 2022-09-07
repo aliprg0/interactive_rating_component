@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./*.html"],
   theme: {
@@ -10,15 +9,6 @@ module.exports = {
         "medium-grey": "hsl(216, 12%, 54%)",
         "dark-blue": "hsl(213, 19%, 18%)",
         "very-dark-blue": "hsl(216, 12%, 8%)",
-        transparent: "transparent",
-        current: "currentColor",
-        black: colors.black,
-        white: colors.white,
-        gray: colors.slate,
-        green: colors.emerald,
-        purple: colors.violet,
-        yellow: colors.amber,
-        pink: colors.fuchsia,
       },
     },
   },
