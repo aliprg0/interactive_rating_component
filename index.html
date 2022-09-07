@@ -18,7 +18,8 @@
   </head>
   <body class="flex justify-center items-center min-h-screen bg-very-dark-blue">
     <div
-      class="max-w-sm bg-dark-blue p-5 overflow-hidden rounded-2xl text-white" id="rate_card"
+      class="max-w-sm bg-dark-blue p-5 overflow-hidden rounded-2xl text-white"
+      id="rate_card"
     >
       <img
         src="./images/icon-star.svg"
@@ -45,18 +46,22 @@
         >
         <i
           class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          id="rate-2"
           >2</i
         >
         <i
           class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          id="rate-3"
           >3</i
         >
         <i
           class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          id="rate-4"
           >4</i
         >
         <i
           class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          id="rate-5"
           >5</i
         >
       </div>
@@ -67,15 +72,58 @@
         SUBMIT
       </button>
     </div>
+    <div
+      id="result_card"
+      class="text-white max-w-sm bg-dark-blue text-center overflow-hidden rounded-3xl hidden"
+    >
+      <div class="mx-24 mt-11">
+        <img src="./images/illustration-thank-you.svg" alt="Thank You Image" />
+      </div>
+      <div
+        id="result_div"
+        class="my-7 text-yellow-600 p-1 bg-dark-blue max-w-[12rem] mx-24 rounded-3xl"
+      ></div>
+      <strong class="text-2xl"> Thank you! </strong>
+      <div class="mx-[2rem] text-sm mt-2 mb-10">
+        <p class="text-light-grey">
+          We appreciate you taking the time to give a rating. If you ever need
+          more support, don’t hesitate to get in touch!
+        </p>
+      </div>
+    </div>
     <script>
+      let rate1 = document.getElementById("rate-1");
+      let rate2 = document.getElementById("rate-2");
+      let rate3 = document.getElementById("rate-3");
+      let rate4 = document.getElementById("rate-4");
+      let rate5 = document.getElementById("rate-5");
+      let note1 = "You selected ";
+      let note2 = " out of 5";
+
+      var listofrates = [rate1, rate2, rate3, rate4, rate5];
+      listofrates.forEach(function (entry) {
+        entry.addEventListener("click", function () {
+          entry.classList.add("bg-yellow-600");
+          let seleted_rate = entry;
+          let none_clicked_rate = listofrates.filter((data) => data != entry);
+          none_clicked_rate.forEach(function (entry) {
+            entry.classList.remove("bg-yellow-600");
+          });
+        });
+      });
+
       let btn = document
         .getElementById("confirm-btn")
-        .addEventListener("click", function () {
-          document.getElementById("confirm-btn").innerHTML = "Chosed";
-          let att = document.getElementById("rate_card").classList;
-          console.log(att);
-        
-          att.remove("max-w-sm")
+        .addEventListener("click", function (seleted_rate) {
+          let rate_card = document.getElementById("rate_card");
+          let result_card = document.getElementById("result_card");
+
+          rate_card.classList.add("hidden");
+          result_card.classList.remove("hidden");
+
+          let result = (document.getElementById("result_div").innerHTML =
+            note1 + seleted_rate.innerHTML + note2);
+            console.log(seleted_rate)
         });
     </script>
   </body>
