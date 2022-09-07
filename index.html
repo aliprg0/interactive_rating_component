@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Interactive rating component</title>
+
+    <link href="/dist/output.css" rel="stylesheet" />
+  </head>
+  <body class="flex justify-center items-center min-h-screen bg-very-dark-blue">
+    <div
+      class="max-w-sm bg-dark-blue p-5 overflow-hidden rounded-2xl text-white" id="rate_card"
+    >
+      <img
+        src="./images/icon-star.svg"
+        alt="Icon of Star"
+        class="w-9 h-9 bg-l rounded-full p-2 bg-gray-600"
+      />
+      <div class="mt-4">
+        <strong class="text-3xl text-white"> How did we do?</strong>
+      </div>
+      <div class="mt-2">
+        <p class="text-light-grey text-xl">
+          Please let us know how we did with your support request. All feedback
+          is appreciated to help us improve our offering!
+        </p>
+      </div>
+
+      <div
+        class="flex flex-row mx-1 mt-7 justify-between text-light-grey text-xl"
+      >
+        <i
+          class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          id="rate-1"
+          >1</i
+        >
+        <i
+          class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          >2</i
+        >
+        <i
+          class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          >3</i
+        >
+        <i
+          class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          >4</i
+        >
+        <i
+          class="px-5 py-3 bg-gray-600 rounded-full hover:animate-[spin_0.4s_linear] hover:rounded-none"
+          >5</i
+        >
+      </div>
+      <button
+        id="confirm-btn"
+        class="bg-yellow-600 text-center mt-7 rounded-3xl h-10 text-xl text-gray-300 tracking-widest pt-1 hover:rounded-none duration-[400ms] min-w-full hover:bg-yellow-700"
+      >
+        SUBMIT
+      </button>
+    </div>
+    <script>
+      let btn = document
+        .getElementById("confirm-btn")
+        .addEventListener("click", function () {
+          document.getElementById("confirm-btn").innerHTML = "Chosed";
+          let att = document.getElementById("rate_card").classList;
+          console.log(att);
+        
+          att.remove("max-w-sm")
+        });
+    </script>
+  </body>
+</html>
