@@ -14,7 +14,22 @@
 
     <title>Frontend Mentor | Interactive rating component</title>
 
-    <link href="/dist/output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              white: "hsl(0, 0%, 100%)",
+              "light-grey": "hsl(217, 12%, 63%)",
+              "medium-grey": "hsl(216, 12%, 54%)",
+              "dark-blue": "hsl(213, 19%, 18%)",
+              "very-dark-blue": "hsl(216, 12%, 8%)",
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body class="flex justify-center items-center min-h-screen bg-very-dark-blue">
     <div
@@ -111,7 +126,6 @@
           });
         });
       });
-      
 
       let btn = document
         .getElementById("confirm-btn")
@@ -121,8 +135,8 @@
 
           rate_card.classList.add("hidden");
           result_card.classList.remove("hidden");
-        
-         let result = (document.getElementById("result_div").innerHTML =
+
+          let result = (document.getElementById("result_div").innerHTML =
             note1 + selected_rate + note2);
         });
     </script>
