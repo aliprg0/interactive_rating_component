@@ -99,18 +99,19 @@
       let rate5 = document.getElementById("rate-5");
       let note1 = "You selected ";
       let note2 = " out of 5";
-
+      let selected_rate = "none ";
       var listofrates = [rate1, rate2, rate3, rate4, rate5];
       listofrates.forEach(function (entry) {
         entry.addEventListener("click", function () {
           entry.classList.add("bg-yellow-600");
-          let seleted_rate = entry;
+          selected_rate = entry.innerHTML;
           let none_clicked_rate = listofrates.filter((data) => data != entry);
           none_clicked_rate.forEach(function (entry) {
             entry.classList.remove("bg-yellow-600");
           });
         });
       });
+      
 
       let btn = document
         .getElementById("confirm-btn")
@@ -120,10 +121,9 @@
 
           rate_card.classList.add("hidden");
           result_card.classList.remove("hidden");
-
-          let result = (document.getElementById("result_div").innerHTML =
-            note1 + seleted_rate.innerHTML + note2);
-            console.log(seleted_rate)
+        
+         let result = (document.getElementById("result_div").innerHTML =
+            note1 + selected_rate + note2);
         });
     </script>
   </body>
